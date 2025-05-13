@@ -29,13 +29,15 @@ body {
     width: 150px;
     height: auto;
     margin: 20px auto 10px;
+    z-index: 2;
+    position: relative;
 }
 
 #initial-greeting-popup {
     position: fixed;
-    top: 50%;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     background-color: transparent;
     color: #ff69b4;
     padding: 0;
@@ -43,9 +45,10 @@ body {
     box-shadow: none;
     z-index: 10;
     text-align: center;
-    font-size: 4em;
+    font-size: 3em;
     font-family: 'Dancing Script', cursive, sans-serif;
     line-height: 1.2;
+    width: 90%;
 }
 
 #initial-greeting-popup h2 {
@@ -55,9 +58,9 @@ body {
 #birthday-message-popup {
     display: none;
     position: fixed;
-    top: 45%;
+    top: 20%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     z-index: 10;
     text-align: center;
     font-weight: bold;
@@ -66,10 +69,10 @@ body {
     padding: 0;
     border-radius: 0;
     box-shadow: none;
-    font-size: 2.5em;
+    font-size: 2em;
     font-family: 'Dancing Script', cursive, sans-serif;
     line-height: 1.2;
-    max-width: 80%;
+    max-width: 90%;
 }
 
 #birthday-message-popup h2 {
@@ -109,7 +112,7 @@ body {
     font-size: 1.2em;
     cursor: pointer;
     position: fixed;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 11;
@@ -125,16 +128,17 @@ body {
     background-color: #d64161;
 }
 
-
 .love-letter-container {
     display: none;
     margin-bottom: 40px;
-    text-align: left;
+    text-align: center;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 12;
+    width: 90%;
+    max-width: 500px;
 }
 
 #letter-chatbox {
@@ -143,11 +147,10 @@ body {
     padding: 30px;
     border-radius: 10px;
     border: 2px solid #555;
-    border-radius: 8px;
     overflow: hidden;
     position: relative;
-    min-height: 150px;
-    max-width: 80%;
+    min-height: 200px;
+    max-width: 100%;
     text-align: center;
 }
 
@@ -158,8 +161,8 @@ body {
     text-align: center;
     margin-top: 0;
     margin-bottom: 20px;
-    position: relative;
     z-index: 1;
+    position: relative;
 }
 
 #letter-chatbox p {
@@ -169,11 +172,11 @@ body {
     line-height: 1.7;
     color: #ff8c00;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    position: absolute;
-    top: 70px;
-    left: 0;
+    position: relative;
     width: 100%;
     text-align: center;
+    top: auto;
+    left: auto;
 }
 
 .messages-section {
@@ -182,11 +185,13 @@ body {
     padding: 30px;
     border-radius: 10px;
     position: fixed;
-    bottom: 20px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 13;
     text-align: center;
+    max-width: 90%;
+    width: 400px;
 }
 
 .messages-section h2 {
@@ -224,21 +229,66 @@ body::after {
     opacity: 0.7;
 }
 
+/* 🌟 Mobile-specific styles */
 @media screen and (max-width: 600px) {
     .popup {
         width: 95%;
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 
     .popup h2 {
         font-size: 0.9em;
     }
 
+    #initial-greeting-popup {
+        font-size: 2em;
+        top: 8%;
+    }
+
+    #birthday-message-popup {
+        font-size: 1.5em;
+        top: 16%;
+    }
+
+    #teddy-bear {
+        width: 120px;
+    }
+
     #letter-chatbox {
         max-width: 95%;
+        padding: 20px;
+    }
+
+    #letter-chatbox h2 {
+        font-size: 2em;
+    }
+
+    #letter-chatbox p {
+        font-size: 1em;
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+
+    .messages-section {
+        max-width: 95%;
+        width: auto;
+        padding: 20px;
+        font-size: 0.95em;
+        bottom: 5px;
+    }
+
+    #open-letter-btn {
+        font-size: 1em;
+        padding: 12px 24px;
+        top: 65%;
+    }
+
+    .love-letter-container {
+        top: 60%;
     }
 }
 
 #background-music {
-  display: none;
+    display: none;
 }

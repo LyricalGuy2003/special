@@ -85,7 +85,6 @@ function showBirthdayMessage() {
     }, 1000);
 }
 
-// Handle the "Open to smile" button click
 openLetterBtn.addEventListener('click', () => {
     openLetterBtn.classList.remove('visible');
     setTimeout(() => {
@@ -93,11 +92,10 @@ openLetterBtn.addEventListener('click', () => {
     }, 500);
     teddyBear.style.display = 'none';
     loveLetterContainer.style.display = 'block';
-    displayParagraphs(paragraphs, 0); // Start displaying paragraphs
+    displayParagraphs(paragraphs, 0);
     playMusic();
 });
 
-// Display paragraphs one by one
 function displayParagraphs(paras, index) {
     if (index < paras.length) {
         const paragraph = document.createElement('p');
@@ -119,14 +117,27 @@ function displayParagraphs(paras, index) {
             paragraph.style.transform = 'translateY(-20px)';
             setTimeout(() => {
                 paragraph.remove();
-                displayParagraphs(paras, index + 1); // Recursive call
+                displayParagraphs(paras, index + 1);
             }, fadeOutDuration);
         }, displayDuration);
     } else {
-        // When all paragraphs are done, show the messages section
+        // Fade out letter container, then show PS section
         setTimeout(() => {
-            messagesSection.style.display = 'block';
-        }, 500); // Small delay for a smooth transition
+            loveLetterContainer.style.opacity = 1;
+            loveLetterContainer.style.transition = 'opacity 1s';
+            loveLetterContainer.style.opacity = 0;
+
+            setTimeout(() => {
+                loveLetterContainer.style.display = 'none';
+
+                messagesSection.style.display = 'block';
+                messagesSection.style.opacity = 0;
+                messagesSection.style.transition = 'opacity 1s';
+                setTimeout(() => {
+                    messagesSection.style.opacity = 1;
+                }, 50);
+            }, 1000);
+        }, 500);
     }
 }
 
@@ -134,11 +145,9 @@ function playMusic() {
     if (backgroundMusic) {
         backgroundMusic.play().catch(error => {
             console.error("Autoplay prevented:", error);
-            // Optionally prompt user
         });
     }
 }
 
-// Start the sequence
 showBirthdayMessage();
 window.addEventListener('load', playMusic);

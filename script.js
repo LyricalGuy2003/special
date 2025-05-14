@@ -63,27 +63,35 @@ function typeText(element, text, delay, callback) {
 function showBirthdayMessage() {
     const initialGreetingTextElement = initialGreetingPopup.querySelector('h2');
     const birthdayMessageTextElement = birthdayMessagePopup.querySelector('h2');
+    const initialGreetingFullText = "Happy birthday madamji";
     const birthdayMessageFullText = "Happy birthday to the most amazing partner a person could ask for! 🎉 Wishing you a day as wonderful as you are!!";
 
     teddyBear.style.display = 'block';
 
     setTimeout(() => {
         initialGreetingPopup.style.display = 'block';
-        deleteText(initialGreetingTextElement, 80, () => {
+        initialGreetingTextElement.textContent = initialGreetingFullText;
+
+        setTimeout(() => {
             initialGreetingPopup.style.display = 'none';
             birthdayMessagePopup.style.display = 'block';
+
             typeText(birthdayMessageTextElement, birthdayMessageFullText, 80, () => {
                 deleteText(birthdayMessageTextElement, 80, () => {
                     birthdayMessagePopup.style.display = 'none';
                     openLetterBtn.style.display = 'block';
+
                     setTimeout(() => {
                         openLetterBtn.classList.add('visible');
                     }, 50);
                 });
             });
-        });
-    }, 1000);
+
+        }, 3000); // First message stays for 3 seconds
+
+    }, 1000); // Initial delay before showing first message
 }
+
 
 openLetterBtn.addEventListener('click', () => {
     openLetterBtn.classList.remove('visible');

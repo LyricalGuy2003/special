@@ -165,8 +165,26 @@ function displayParagraphs(paras, index) {
                         finalSurprise.style.opacity = 0;
                         finalSurprise.style.transition = 'opacity 1s';
                         setTimeout(() => {
-                            finalSurprise.style.opacity = 1;
-                        }, 50);
+    finalSurprise.style.opacity = 1;
+
+    // Create and show a Replay button
+    const replayBtn = document.createElement('button');
+    replayBtn.textContent = "Replay Surprise";
+    replayBtn.style.marginTop = "20px";
+    replayBtn.style.padding = "10px 20px";
+    replayBtn.style.fontSize = "16px";
+    replayBtn.style.border = "none";
+    replayBtn.style.borderRadius = "8px";
+    replayBtn.style.backgroundColor = "#ff6b81";
+    replayBtn.style.color = "#fff";
+    replayBtn.style.cursor = "pointer";
+    replayBtn.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+    replayBtn.addEventListener('click', () => {
+        location.reload(); // Reset and replay the animation
+    });
+    finalSurprise.appendChild(replayBtn);
+
+}, 50);
 
                         finalTeddy.style.display = 'block';
                     }, 1000);

@@ -254,6 +254,40 @@ body::after {
     100% { transform: scale(1); opacity: 0.4; }
 }
 
+.final-surprise-box {
+    text-align: center;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.3em; /* Adjust size */
+    color: orange; /* Orange text color */
+    background-color: black; /* Black background for the chatbox */
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 80%; /* Adjust max-width for mobile screens */
+    margin: 20px auto;
+    border: 2px solid orange; /* Optional: orange border for the chatbox */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 1s ease-in-out;
+}
+
+.final-surprise-box h2 {
+    font-size: 1.3em;  /* Set a custom font size for h2 */
+    color: orange;  /* Text color for the heading */
+    margin: 0;
+    padding: 0;
+}
+
+.final-surprise-box.show {
+  opacity: 1;
+}
+
+.final-teddy-gif {
+  display: block;
+  margin: 10px auto;
+  max-width: 180px;
+  height: auto;
+}
+
+
 
 /* 🌟 Mobile-specific styles */
 @media screen and (max-width: 600px) {
@@ -334,6 +368,20 @@ body::after {
      #teddy-gif {
         max-width: 120px;
         margin-top: 16px;
+    }
+
+    .final-surprise-box {
+        font-size: 1em;
+        padding: 14px;
+        max-width: 92%;
+    }
+
+    .final-surprise-box h2 {
+        font-size: 1.3em;
+    }
+
+    .final-teddy-gif {
+        max-width: 150px;
     }
 }
 

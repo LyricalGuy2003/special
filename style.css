@@ -277,7 +277,7 @@ body::after {
 
     #birthday-message-popup {
         max-width: 90vw;
-        font-size: 1.15rem; /* Slightly smaller font for mobile */
+        font-size: 1.5rem; /* Slightly smaller font for mobile */
         padding: 10px;
         white-space: normal;
         /*word-break: break-word;*/

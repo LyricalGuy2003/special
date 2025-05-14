@@ -276,9 +276,10 @@ body::after {
     }
 
     #birthday-message-popup {
-        font-size: 1.5em;
-        top: 16%;
-    }
+    max-width: 85%;
+    white-space: normal;
+    word-break: break-word;
+  }
 
     #birthday-message-popup h2 {
         margin-top: 50px;

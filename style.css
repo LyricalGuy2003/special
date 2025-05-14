@@ -278,10 +278,10 @@ body::after {
     #birthday-message-popup {
         max-width: 90vw;
         font-size: 1rem; /* Slightly smaller font for mobile */
-        padding: 12px;
+        padding: 8px;
         white-space: normal;
-        word-break: break-word;
-        line-height: 1.5;
+        /*word-break: break-word;*/
+        line-height: 1.3;
     }
 
     #birthday-message-popup h2 {

@@ -97,6 +97,9 @@ openLetterBtn.addEventListener('click', () => {
 });
 
 function displayParagraphs(paras, index) {
+    const teddyGif = document.getElementById('teddy-gif');
+    teddyGif.style.display = 'block'; // Show teddy with the letter
+
     if (index < paras.length) {
         const paragraph = document.createElement('p');
         paragraph.style.opacity = 0;
@@ -121,14 +124,16 @@ function displayParagraphs(paras, index) {
             }, fadeOutDuration);
         }, displayDuration);
     } else {
-        // Fade out letter container, then show PS section
+        // Fade out letter container and teddy
         setTimeout(() => {
             loveLetterContainer.style.opacity = 1;
             loveLetterContainer.style.transition = 'opacity 1s';
             loveLetterContainer.style.opacity = 0;
+            teddyGif.style.opacity = 0;
 
             setTimeout(() => {
                 loveLetterContainer.style.display = 'none';
+                teddyGif.style.display = 'none';
 
                 messagesSection.style.display = 'block';
                 messagesSection.style.opacity = 0;
@@ -140,6 +145,7 @@ function displayParagraphs(paras, index) {
         }, 500);
     }
 }
+
 
 function playMusic() {
     if (backgroundMusic) {

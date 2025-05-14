@@ -281,7 +281,7 @@ body::after {
         padding: 8px;
         white-space: normal;
         /*word-break: break-word;*/
-        line-height: 1.3;
+        line-height: 1.5;
     }
 
     #birthday-message-popup h2 {

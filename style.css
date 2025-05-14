@@ -276,13 +276,17 @@ body::after {
     }
 
     #birthday-message-popup {
-    max-width: 85%;
-    white-space: normal;
-    word-break: break-word;
-  }
+        max-width: 90vw;
+        font-size: 1rem; /* Slightly smaller font for mobile */
+        padding: 12px;
+        white-space: normal;
+        word-break: break-word;
+        line-height: 1.5;
+    }
 
     #birthday-message-popup h2 {
-        margin-top: 50px;
+        font-size: 1rem;
+        text-align: center;
     }
 
     #teddy-bear {

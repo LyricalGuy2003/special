@@ -106,6 +106,10 @@ openLetterBtn.addEventListener('click', () => {
 
 function displayParagraphs(paras, index) {
     const teddyGif = document.getElementById('teddy-gif');
+    const psBox = document.getElementById('ps-box');
+    const finalSurprise = document.getElementById('final-surprise');
+    const finalTeddy = document.getElementById('final-teddy');
+
     teddyGif.style.display = 'block'; // Show teddy with the letter
 
     if (index < paras.length) {
@@ -132,7 +136,7 @@ function displayParagraphs(paras, index) {
             }, fadeOutDuration);
         }, displayDuration);
     } else {
-        // Fade out letter container and teddy
+        // Fade out love letter
         setTimeout(() => {
             loveLetterContainer.style.opacity = 1;
             loveLetterContainer.style.transition = 'opacity 1s';
@@ -143,17 +147,36 @@ function displayParagraphs(paras, index) {
                 loveLetterContainer.style.display = 'none';
                 teddyGif.style.display = 'none';
 
-                messagesSection.style.display = 'block';
-                messagesSection.style.opacity = 0;
-                messagesSection.style.transition = 'opacity 1s';
+                // Show PS box
+                psBox.style.display = 'block';
+                psBox.style.opacity = 0;
+                psBox.style.transition = 'opacity 1s';
                 setTimeout(() => {
-                    messagesSection.style.opacity = 1;
+                    psBox.style.opacity = 1;
                 }, 50);
+
+                // After PS box shows for a while, hide it and show final surprise and gif
+                setTimeout(() => {
+                    psBox.style.opacity = 0;
+                    setTimeout(() => {
+                        psBox.style.display = 'none';
+
+                        finalSurprise.style.display = 'block';
+                        finalSurprise.style.opacity = 0;
+                        finalSurprise.style.transition = 'opacity 1s';
+                        setTimeout(() => {
+                            finalSurprise.style.opacity = 1;
+                        }, 50);
+
+                        finalTeddy.style.display = 'block';
+                    }, 1000);
+
+                }, 4000); // PS box stays for 4 seconds
+
             }, 1000);
         }, 500);
     }
 }
-
 
 function playMusic() {
     if (backgroundMusic) {
